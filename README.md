@@ -1,8 +1,9 @@
-# ODEM: Agentic Long-Video Understanding with Episodic Memory
+# ODEM: Agentic Long-Video Understanding with On-Demand Episodic Memory
 
-ODEM builds timestamped episodic memory for long-video question answering.
+ODEM is a state-driven multi-agent framework that integrates on-demand episodic
+memory with a nonlinear cognitive controller for long-form video understanding. 
 
-This release supports Video-MME Long and M3-Bench.
+This release provides pipelines for VideoMME-Long and M3-Bench-robot.
 
 ## 1. Installation
 
@@ -33,14 +34,14 @@ models/
 
 ## 3. Datasets
 
-Prepare Video-MME Long with:
+Prepare VideoMME-Long with:
 
 ```bash
 pip install --upgrade huggingface_hub pyarrow
 bash scripts/prepare_videomme_long.sh
 ```
 
-For M3-Bench, download the robot videos from
+For M3-Bench-robot, download the robot videos from
 [ByteDance-Seed/M3-Bench](https://huggingface.co/datasets/ByteDance-Seed/M3-Bench)
 and download
 [`robot.json`](https://github.com/ByteDance-Seed/m3-agent/blob/master/data/annotations/robot.json).
@@ -80,7 +81,7 @@ bash scripts/run_videomme.sh
 bash scripts/run_m3bench.sh
 ```
 
-M3-Bench requires a separate semantic evaluation step:
+M3-Bench-robot requires a separate semantic evaluation step:
 
 ```bash
 python -m eval.m3bench.evaluate

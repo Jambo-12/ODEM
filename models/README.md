@@ -2,7 +2,7 @@
 
 Preprocessing expects model files to be stored directly in this repository.
 
-```Shell
+```text
 models/
 ├── Qwen2.5-VL-7B-Instruct/
 │   ├── config.json

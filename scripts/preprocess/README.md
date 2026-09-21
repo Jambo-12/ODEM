@@ -1,7 +1,7 @@
 # Preprocessing
 
-ODEM publishes preprocessing support for **Video-MME** and **M3-Bench**. Both
-benchmarks use the same pipeline:
+ODEM publishes preprocessing support for **VideoMME-Long** and
+**M3-Bench-robot**. Both benchmarks use the same pipeline:
 
 1. generate temporal captions with Qwen2.5-VL-7B-Instruct;
 2. encode the four caption fields with `text-embedding-3-large`;

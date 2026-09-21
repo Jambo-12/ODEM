@@ -1,11 +1,11 @@
 # Dataset preparation
 
-## 1. Video-MME Long
+## 1. VideoMME-Long
 
 Annotations come from
 [topyun/Video-MME-Long](https://huggingface.co/datasets/topyun/Video-MME-Long).
 Videos come from the
-[official Video-MME dataset](https://huggingface.co/datasets/lmms-lab/Video-MME).
+[official Video-MME dataset](https://huggingface.co/datasets/lmms-eval/Video-MME).
 
 Install `huggingface_hub` and `pyarrow`, then run from the repository root:
 
@@ -23,10 +23,13 @@ data/raw/videomme/
 └── videos/                 # 300 videos
 ```
 
-## 2. M3-Bench
+## 2. M3-Bench-robot
 
-Download the robot videos from the [ByteDance-Seed/M3-Bench dataset](https://huggingface.co/datasets/ByteDance-Seed/M3-Bench).
-Download[`robot.json`](https://github.com/ByteDance-Seed/m3-agent/tree/master/data/annotations)from the from m3-agent repository. 
+Download the robot videos from the
+[ByteDance-Seed/M3-Bench dataset](https://huggingface.co/datasets/ByteDance-Seed/M3-Bench),
+and download
+[`robot.json`](https://github.com/ByteDance-Seed/m3-agent/blob/master/data/annotations/robot.json)
+from the m3-agent repository.
 
 Place the MP4 files from `videos/robot/` and the annotation as
 follows:

@@ -19,3 +19,9 @@ bash scripts/run_m3bench.sh
 
 Both commands use GPU 0 by default and load `.env` automatically. Results are
 written to `outputs/videomme/` and `outputs/m3bench/`.
+
+Run the semantic judge for M3-Bench-robot after prediction generation:
+
+```bash
+python -m eval.m3bench.evaluate
+```
