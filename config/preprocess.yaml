@@ -1,0 +1,41 @@
+# Shared preprocessing configuration for ODEM's two public benchmarks.
+#
+# Resolve all relative paths from the repository root. Place models and data
+# directly in the specified directories. Never store API keys in this file.
+
+models:
+  caption:
+    name: Qwen2.5-VL-7B-Instruct
+    path: models/Qwen2.5-VL-7B-Instruct
+  visual_embedding:
+    name: viclip-l-internvid-10m-flt
+    checkpoint: models/ViCLIP/ViClip-InternVid-10M-FLT.pth
+    frames_per_segment: 8
+  text_embedding:
+    name: text-embedding-3-large
+    batch_size: 128
+
+services:
+  text_embedding:
+    api_key_env: OPENAI_API_KEY
+    api_base_env: OPENAI_API_BASE
+    api_base: https://api.openai.com/v1
+
+datasets:
+  videomme:
+    dataset_name: Video-MME
+    video_dir: data/raw/videomme/videos
+    output_dir: data/processed/videomme/qwen2_5_vl_7b_30s
+    clip_seconds: 30
+    caption_prompt: prompts/prompt_caption.txt
+    expected_video_count: 300
+    gpu_id: 0
+
+  m3bench:
+    dataset_name: M3-Bench
+    video_dir: data/raw/m3bench/videos
+    output_dir: data/processed/m3bench/qwen2_5_vl_7b_30s
+    clip_seconds: 30
+    caption_prompt: prompts/prompt_caption.txt
+    expected_video_count: 100
+    gpu_id: 0

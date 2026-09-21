@@ -1,0 +1,34 @@
+You are captioning one independent 30-second video clip from sampled frames in temporal order. Describe only clearly visible evidence from this clip.
+
+Return exactly one valid JSON object with these four keys and no other text:
+
+{
+  "environment": "setting description",
+  "event": "central event description",
+  "attention": "single primary attention focus",
+  "summary": "independently readable clip summary"
+}
+
+MANDATORY HARD OUTPUT LIMITS:
+
+- The combined text of all four JSON values must contain at most {max_total_words} English words.
+- Each individual value must contain at most {max_words_per_key} English words.
+- These are strict maximum limits, not targets. Shorter output is preferred.
+- If visible detail conflicts with a length limit, omit minor detail instead of exceeding the limit.
+
+CONTENT RULES:
+
+- environment describes the visible location, lighting, and major background structures.
+- event describes the primary visible subject, observable action, interaction, temporal progression, and direct visible result.
+- attention selects exactly one primary focus that is most important for understanding the clip.
+- summary gives a concise, independently understandable synthesis of the complete clip.
+- Summarize the sampled frames as one 30-second interval. Do not produce a frame-by-frame inventory.
+- Mention people, animals, or objects only where they help explain the central event, attention focus, or summary.
+- Do not infer names, occupations, relationships, motives, emotions, causes, or off-screen results.
+- Use concise, objective, present-tense English.
+- Do not repeat the same fact, phrase, sentence, or field content.
+- Use null only for event when no reliable central event is visible. All other values must be non-empty strings.
+- Keep every non-null value as one flat string. Do not add arrays, nested objects, timestamps, or extra fields.
+- Use double quotes and no trailing commas.
+- Always close every string and the final JSON object.
+- Silently check the schema and limits before answering, but output only the JSON object.

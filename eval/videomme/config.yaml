@@ -1,0 +1,28 @@
+# Video-MME experiment overrides; API credentials come from the root .env file.
+base_config: ../../config/default.yaml
+
+# Plan, Reason, and Reflect use DeepSeek-V4-Flash.
+llm_provider: deepseek
+deepseek_model: deepseek-v4-flash
+
+# One iteration means one Reason pass. The third pass must return a best-effort answer.
+max_iterations: 3
+
+# Save only predictions and accuracy by default; diagnostics can be enabled explicitly.
+diagnostic_logging_enabled: false
+performance_tracking_enabled: false
+
+# Run weighted Summary + ViCLIP fusion for the main query and each sub-query.
+localization_top_k: 5
+localization_textual_weight: 11.0
+localization_visual_weight: 18.0
+
+# The combined caption and ASR context uses one approximate token budget.
+episodic_memory_max_tokens: 8000
+
+# Retrieved Video-MME segments always pass through ASR with bounded concurrency.
+perception_enable_asr: true
+asr_max_concurrency: 4
+
+# Each Reflect pass selects at most two Perception segments; Attention stays short-range.
+perception_tool_max_segments: 2

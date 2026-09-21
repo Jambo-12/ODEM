@@ -1,0 +1,31 @@
+# 预处理结果（caption 与 embedding），体量大且可重新生成
+/caption/
+/caption_result/
+
+# 规范化后的本地原始数据与预处理结果
+/data/raw/
+/data/processed/
+/outputs/
+
+# 本地模型权重；仓库只保留目录说明
+/models/Qwen2.5-VL-7B-Instruct/*
+!/models/Qwen2.5-VL-7B-Instruct/README.md
+/models/ViCLIP/*
+!/models/ViCLIP/README.md
+*.pt
+*.pth
+*.safetensors
+
+# 编辑器、日志和系统文件
+.vscode/
+.DS_Store
+*.log
+
+# 本地密钥与机器专用覆盖配置
+/.env
+/config/preprocess.local.yaml
+
+# Python/runtime caches
+__pycache__/
+*.py[cod]
+.pytest_cache/

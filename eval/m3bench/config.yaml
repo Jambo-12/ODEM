@@ -1,0 +1,33 @@
+# M3-Bench overrides; base model and API settings are merged from default.yaml.
+base_config: ../../config/default.yaml
+
+# Plan, Reason, and Reflect use DeepSeek-V4-Flash.
+# Read the API key only from DEEPSEEK_API_KEY.
+llm_provider: "deepseek"
+deepseek_model: "deepseek-v4-flash"
+deepseek_api_base: "https://api.deepseek.com"
+
+# One Reason execution counts as one pass; the third must return a best-effort answer.
+max_iterations: 3
+
+# Run Summary + ViCLIP fused Top-5 retrieval for the main query and each sub-query.
+localization_top_k: 5
+localization_textual_weight: 11.0
+localization_visual_weight: 18.0
+
+# Accumulated memory C assembled from captions and ASR uses one token budget.
+episodic_memory_max_tokens: 8000
+
+# M3-Bench has audio; run ASR only on source videos and never use official subtitles.
+perception_enable_asr: true
+asr_max_concurrency: 4
+
+# Each Reflect pass requests at most two Perception segments.
+perception_tool_max_segments: 2
+
+# Official open-ended semantic judge and concurrency settings.
+judge_model: "gpt-4o-2024-11-20"
+judge_workers: 4
+judge_max_retries: 20
+judge_retry_sleep_sec: 20
+judge_request_timeout: 30
